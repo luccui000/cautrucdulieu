@@ -65,19 +65,6 @@ void LRN(TREE root)
 		printf("\t|__>Ten: %s\t Tuoi: %d\n", root->data.hoten, root->data.tuoi);
 	}
 }
-node* Search(TREE root,sv x)
-{
-	if(root!=NULL)
-	{
-		if(root->data.tuoi==x.tuoi)
-			return root;
-		if(root->data.tuoi>x.tuoi)
-			return Search(root->left,x);
-		else
-			return Search(root->right,x);
-	}
-	return NULL;
-}
 
 int max(int a,int b)
 {
@@ -189,6 +176,18 @@ void Deletetree(TREE &root)
 		Deletenode(root,root->data);
 	}
 }
+node* Search(TREE root,sv x) {
+	if(root!=NULL)
+	{
+		if(root->data.tuoi==x.tuoi)
+			return root;
+		if(root->data.tuoi>x.tuoi)
+			return Search(root->left,x);
+		else
+			return Search(root->right,x);
+	}
+	return nullptr;
+}
 void menu() {
 	int choose;
 	TREE t;
@@ -220,10 +219,11 @@ void menu() {
 				LNR(t);
 			break;
 		case 3:
-			sv y;
+			sv z;
 			printf("Nhap tuoi: ");
-			scanf("%d", &y.tuoi);
-			Search(t, y); 
+			scanf("%d", &z.tuoi);
+			node *n;
+			n = Search(t, z);
 			break;
 		case 4:
 			init(t);
