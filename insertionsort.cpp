@@ -20,9 +20,16 @@ void printArr(int a[], int n){
 	printf("\n");
 }
 int main() {
-	int a[] = { 2, 54, 23, 66, 33, 85, 4, 56, 23, 6, 44, 99, 10, 9, 48, 38 };
-	int n = sizeof(a)/ sizeof(a[0]);
 	// IN ra day chua sap xep
+	int a[100];
+	int n;
+
+	printf("Nhap so luong phan tu: ");
+	scanf("%d", &n);
+	for(int i = 0; i < n; i++) {
+		printf("Nhap phan tu thu a[%d]: ", i);
+		scanf("%d", &a[i]);
+	}
 	printf("Day so chua sap xep: ");
 	printArr(a, n);
 	//  Goi ham sap xep
