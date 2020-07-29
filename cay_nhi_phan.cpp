@@ -19,11 +19,14 @@ typedef struct node
 typedef struct node *TREE;
 TREE root;
 
+void init(){
+	root = NULL;
+}
 void CreateTree(TREE &root)
 {	
 	sv s;
-	printf("Nhap ho ten: ");
 	fflush(stdin);
+	printf("Nhap ho ten: ");
 	fgets(s.hoten, MAX, stdin);
 	if(strcmp(s.hoten, "n") != 0) {
 		printf("Nhap tuoi: ");
@@ -186,7 +189,7 @@ node* Search(TREE root,sv x) {
 		else
 			return Search(root->right,x);
 	}
-	return nullptr;
+	return NULL;
 }
 void menu() {
 	int choose;
@@ -203,11 +206,13 @@ void menu() {
 		printf("\n0. Thoat");
 		printf("\nNhap lua chon cua ban: ");
 		scanf("%d",&choose);
+		init();
 		switch(choose) {
 		case 0:
 			break;
 		case 1:
-			CreateTree(t);
+
+			CreateTree1(t);
 			break;
 		case 2:
 			printf("\n+++++ DUYET CAY +++++\n");
