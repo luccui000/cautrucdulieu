@@ -6,7 +6,7 @@ void hoanvi(int &a, int &b){
 	b = tmp;
 }
 void xuat_mang(int a[], int n){
-	for(int i = 0; i < n; i++)
+	for(int i = 1; i <= n; i++)
 		printf("%d\t", a[i]);
 	printf("\n");
 }
@@ -17,7 +17,8 @@ void Shift(int a[], int l, int r){
 	int x = a[i];
 	while(j <= r){
 		if(j < r)
-			++j;
+			if(a[j] < a[j+1])
+				++j;
 		if(a[j] < x)
 			break;
 		else {
@@ -30,31 +31,31 @@ void Shift(int a[], int l, int r){
 }
 void createHeap(int a[], int n ) {
 	int l = n/2;
-	while(l >= 0){
-		Shift(a, l, n - 1);
+	while(l > 0){
+		Shift(a, l, n);
 		l--;
 	}
 }
 void heapsort(int a[], int n) {
 	createHeap(a, n);
 	int r = n;
-	while(r >= 0){
-		hoanvi(a[0], a[r]);
+	while(r > 0){
+		hoanvi(a[1], a[r]);
 		r--;
-		Shift(a, 0, r);
+		Shift(a, 1, r);
 	}
 }
 int main() {
 	int a[100], n;
 	printf("nhap so luong phan tu: ");
 	scanf("%d", &n);
-	for(int i = 0; i < n; i++) {
+	for(int i = 1; i <= n; i++) {
 		printf("nhap phan tu thu a[%d]: ", i);
 		scanf("%d", &a[i]);
 	}
 	printf("Day so da nhap: "); 
 	xuat_mang(a, n);
-	heapsort(a, n - 1);
+	heapsort(a, n );
 	printf("Day so sau khi sap xep: "); 
 	xuat_mang(a, n);
 	return 0;
