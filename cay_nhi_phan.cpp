@@ -114,7 +114,7 @@ void CreateTree1(TREE &root)
 	{
 		printf("\nNhap ho ten:");
 		fflush(stdin);
-		fgets(x.hoten, MAX, stdin);
+		gets(x.hoten);
 		printf("\nNhap tuoi:");
 		scanf("%d",&x.tuoi);
 		InsertNode(root,x);
@@ -211,8 +211,7 @@ void menu() {
 		case 0:
 			break;
 		case 1:
-
-			CreateTree1(t);
+			CreateTree(t);
 			break;
 		case 2:
 			printf("\n+++++ DUYET CAY +++++\n");
