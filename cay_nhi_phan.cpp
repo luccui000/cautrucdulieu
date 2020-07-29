@@ -27,7 +27,7 @@ void CreateTree(TREE &root)
 	sv s;
 	fflush(stdin);
 	printf("Nhap ho ten: ");
-	fgets(s.hoten, MAX, stdin);
+	gets(s.hoten);
 	if(strcmp(s.hoten, "n") != 0) {
 		printf("Nhap tuoi: ");
 		scanf("%d",&s.tuoi);
