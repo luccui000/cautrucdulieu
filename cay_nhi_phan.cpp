@@ -158,9 +158,9 @@ void Deletenode(TREE &root,sv x)
 	if(root->data.tuoi<x.tuoi)
 		Deletenode(root->right,x);
 	if(root->data.tuoi==x.tuoi) {
-		node *p=root;
+		node *p = root;
 		if(root->right==NULL)
-			root=root->left;
+			root = root->left;
 		else
 			if(root->left==NULL)
 				root=root->right;
@@ -179,17 +179,16 @@ void Deletetree(TREE &root)
 		Deletenode(root,root->data);
 	}
 }
-node* Search(TREE root,sv x) {
-	if(root!=NULL)
-	{
-		if(root->data.tuoi==x.tuoi)
+node* Search(TREE root, sv x) {
+	if(root!=NULL) {
+		if(root->data.tuoi == x.tuoi)
 			return root;
 		if(root->data.tuoi>x.tuoi)
 			return Search(root->left,x);
 		else
 			return Search(root->right,x);
-	}
-	return NULL;
+	} else
+		return NULL;
 }
 void menu() {
 	int choose;
@@ -211,8 +210,7 @@ void menu() {
 		case 0:
 			break;
 		case 1:
-
-			CreateTree1(t);
+			CreateTree(t);
 			break;
 		case 2:
 			printf("\n+++++ DUYET CAY +++++\n");
@@ -229,6 +227,10 @@ void menu() {
 			scanf("%d", &z.tuoi);
 			node *n;
 			n = Search(t, z);
+			if(n != NULL)
+				printf("Tim thay\n");
+			else 
+				printf("Khong co SV nao co tuoi nhu vay\n");
 			break;
 		case 4:
 			init(t);
